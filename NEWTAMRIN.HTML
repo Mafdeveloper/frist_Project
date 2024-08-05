@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #9161ff 40%, #ff49f9 60%);
+        }
+        
+        .conatiner {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .time-box {
+            width: 30%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem 2rem;
+        }
+        
+        .time-box .number-Box {
+            width: 16%;
+            height: 50px;
+            border-radius: 5px;
+            background: #dedede;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .time-box .number-Box span {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conatiner">
+        <div class="time-box">
+            <div class="number-Box">
+                <span class="h-Number"></span>
+            </div>
+            <div class="number-Box">
+                <span class="m-Number"></span>
+            </div>
+            <div class="number-Box">
+                <span class="s-Number"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let numberGpElem = document.querySelectorAll('.h-Number,.m-Number,.s-Number');
+        setInterval(() => {
+            let myTime = new Date();
+            numberGpElem[0].innerHTML = myTime.getHours();
+            numberGpElem[1].innerHTML = myTime.getMinutes();
+            numberGpElem[2].innerHTML = myTime.getSeconds();
+        }, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --background-body: #141414;
+            --background-body-mode: #e1e1e1;
+        }
+        
+        body {
+            background-color: var(--background-body-mode);
+        }
+        
+        body[class='theme-dark'] {
+            background-color: var(--background-body);
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            max-height: 100vh;
+        }
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0.5rem 1.5rem;
+        }
+        
+        label {
+            width: 40px;
+            height: 20px;
+            border-radius: 1.5rem;
+            background-color: #fff;
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            cursor: pointer;
+            div {
+                width: 21px;
+                height: 21px;
+                background-color: #000;
+                border-radius: 50%;
+                position: absolute;
+                transition: 0.4s;
+            }
+        }
+        
+        .moveButton {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <label id="button-mode">
+                    <div id="dMove"></div>
+                </label>
+            </nav>
+        </header>
+    </div>
+    <script>
+        let divMoveElem = document.querySelector('#dMove');
+        let btnModeElem = document.querySelector('#button-mode');
+        let changeMode = (function() {
+            let bodyElem = document.body;
+            let state = '';
+            return {
+                changeModeLocalStorage() {
+                    let StMode = localStorage.getItem('State');
+                    if (StMode) {
+                        console.log('kir');
+                        bodyElem.classList.add('theme-dark');
+                        divMoveElem.classList.add('moveButton');
+                    } else {
+                        bodyElem.classList.remove('theme-dark');
+                        divMoveElem.classList.remove('moveButton');
+                    }
+                },
+                changeMode() {
+                    bodyElem.classList.toggle('theme-dark');
+                    divMoveElem.classList.toggle('moveButton');
+                    state = bodyElem.getAttribute('class');
+                    if (state) {
+                        localStorage.setItem('State', 'theme-dark');
+                    } else {
+                        localStorage.setItem('State', '');
+                    }
+                },
+            }
+        })();
+        window.addEventListener('load', changeMode.changeModeLocalStorage);
+        btnModeElem.addEventListener('click', changeMode.changeMode);
+    </script>
+</body>
+
+</html>

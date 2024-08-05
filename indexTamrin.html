@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Margarine&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+        
+         :root {
+            --white-color: #fff;
+            --black-color: #000;
+            --light-white-color: #f0f0f0;
+            --light-gray-color: #c9c9c9;
+            --border-color: #d4d4d4;
+            --primary-color: #3b82f6;
+            --secondary-color: #404040;
+            --overlay-dark-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            max-height: 100vh;
+        }
+        
+        .navbar {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            justify-content: space-between;
+        }
+        
+        .container :where(.nav-section,
+        .search-form,
+        .nav-logo) {
+            display: flex;
+            align-items: center;
+        }
+        
+        .container .nav-section {
+            gap: 1rem;
+        }
+        
+        .container :where(.logo-image,
+        .user-image) {
+            width: 50px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        
+        .container .nav-button {
+            border: none;
+            cursor: pointer;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: none;
+        }
+        
+        .container .nav-button:hover {
+            background-color: var(--light-gray-color);
+        }
+        
+        .container .nav-button i {
+            display: flex;
+            font-size: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container .nav-logo {
+            display: flex;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .container .nav-cneter {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .navbar .search-form {
+            max-width: 550px;
+            flex: 1;
+            height: 40px;
+        }
+        
+        .navbar .search-form .search-input {
+            width: 100%;
+            height: 100%;
+            padding: 0.5rem 1rem;
+            outline: none;
+            font-size: 1rem;
+            border-radius: 3.1rem 0 0 3.1rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        .navbar .search-form .search-button {
+            width: auto;
+            padding: 0 1.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0 3.1rem 3.1rem 0;
+            border-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <div class="nav-section nav-left">
+                    <button class="nav-button menu-button">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <a href="#" class="nav-logo">
+                        <img src="media/pngimg.com - samsung_logo_PNG6.png" alt="logo" class="logo-image">
+                    </a>
+                </div>
+                <div class="nav-section nav-center">
+                    <form action="#" class="search-form">
+                        <input type="search" placeholder="Search" required class="search-input">
+                        <button class="nav-button search-button">
+                            <i class="fa-solid fa-magnifying-glass"></i> 
+                        </button>
+                    </form>
+                    <button class="nav-button mic-button">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                </div>
+                <div class="nav-section nav-right">
+                    <button class="nav-button mic-button">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Outdoors-man-portrait_%28cropped%29.jpg" alt="img" class="user-image">
+                </div>
+            </nav>
+        </header>
+    </div>
+</body>
+
+</html>

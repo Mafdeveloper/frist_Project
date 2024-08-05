@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #141414;
+            font-family: sans-serif;
+        }
+        
+        .container {
+            width: 100%;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container .keyButton {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 1.5rem 1rem;
+        }
+        
+        .keyButton button {
+            border-radius: 5px;
+            border: none;
+            padding: 0.6rem 1.1rem;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .keyButton .buttonShortKut {
+            padding: 0.6rem 1.4rem;
+        }
+        
+        @keyframes keyScale {
+            to {
+                transform: scale(1);
+                box-shadow: 0 0 3px 2px #fff;
+            }
+            from {
+                transform: scale(1.3);
+                box-shadow: 0 0 3px 2px #fff;
+            }
+        }
+        
+        .BgRed {
+            background-color: #b3002a;
+        }
+        
+        .BgOrangeLowLight {
+            background-color: #ff824d;
+        }
+        
+        .BgOrange {
+            background-color: #ff9100;
+        }
+        
+        .BgGold {
+            background-color: #ffd500;
+        }
+        
+        .BglowYellow {
+            background-color: #ffed92;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="keyButton">
+            <button id="ESC" class="BgRed">ESC</button>
+            <button id="1" class="BgRed">1</button>
+            <button id="2" class="BgOrangeLowLight">2</button>
+            <button id="3" class="BgOrange">3</button>
+            <button id="4" class="BgGold">4</button>
+            <button id="5" class="BglowYellow">5</button>
+            <button id="6" class="BglowYellow">6</button>
+            <button id="7" class="BgGold">7</button>
+            <button id="8" class="BgOrange">8</button>
+            <button id="9" class="BgOrangeLowLight">9</button>
+            <button id="0" class="BgRed">0</button>
+            <button id="-" class="BgRed">-</button>
+            <button id="+" class="BgRed">+</button>
+            <button id="BACK" class="buttonShortKut BgRed">BACK</button>
+            <button id="TAB" class="BgRed">TAB</button>
+            <button id="Q" class="BgRed">Q</button>
+            <button id="W" class="BgOrangeLowLight">W</button>
+            <button id="E" class="BgOrange">E</button>
+            <button id="R" class="BgGold">R</button>
+            <button id="T" class="BglowYellow">T</button>
+            <button id="Y" class="BglowYellow">Y</button>
+            <button id="U" class="BgGold">U</button>
+            <button id="I" class="BgOrange">I</button>
+            <button id="O" class="BgOrangeLowLight">O</button>
+            <button id="P" class="BgRed">P</button>
+            <button id="[" class="BgRed">[</button>
+            <button id="]" class="BgRed">]</button>
+            <button id="\" class="BgRed">\</button>
+            <button id="CAPS" class="BgRed">CAPS</button>
+            <button id="A" class="BgRed">A</button>
+            <button id="S" class="BgOrangeLowLight">S</button>
+            <button id="D" class="BgOrange">D</button>
+            <button id="F" class="BgGold">F</button>
+            <button id="G" class="BglowYellow">G</button>
+            <button id="H" class="BglowYellow">H</button>
+            <button id="J" class="BgGold">J</button>
+            <button id="K" class="BgOrange">K</button>
+            <button id="L" class="BgOrangeLowLight">L</button>
+            <button id=":" class="BgRed">:</button>
+            <button id='"' class="BgRed">"</button>
+            <button id="ENETER" class="BgRed">ENETER</button>
+            <button id="SHIFT" class="buttonShortKut BgRed">SHIFT</button>
+            <button id="Z" class="BgRed">Z</button>
+            <button id="X" class="BgOrangeLowLight">X</button>
+            <button id="C" class="BgOrange">C</button>
+            <button id="V" class="BgGold">V</button>
+            <button id="B" class="BglowYellow">B</button>
+            <button id="N" class="BglowYellow">N</button>
+            <button id="M" class="BgGold">M</button>
+            <button id="," class="BgOrange">,</button>
+            <button id="." class="BgOrangeLowLight">.</button>
+            <button id=";" class="BgRed">;</button>
+            <button id="SHIFT" class="buttonShortKut BgRed">SHIFT</button>
+        </div>
+    </div>
+    <script>
+        let buttonKey = document.querySelector('.keyButton').children;
+        let newArrBtn = Object.entries(buttonKey)
+        document.body.addEventListener('keyup', (event) => {
+            for (const [key, value] of newArrBtn) {
+                if (value.innerHTML === event.key.toUpperCase()) {
+                    value.style.animation = 'keyScale 1s 1';
+                    console.log('hi');
+                }
+                // if (event.key.toUpperCase == value.innerHTML) {
+                //     console.log('hi');
+                //     value.style.color = 'red';
+                // }
+            }
+        });
+        document.body.addEventListener('keydown', (event) => {
+            for (const [key, value] of newArrBtn) {
+                if (value.innerHTML === event.key.toUpperCase()) {
+                    value.style.animation = 'keyScale 0.5s 1';
+                    value.addEventListener('animationend', () => {
+                        value.style.animation = '';
+                    });
+                    console.log('hi');
+                }
+                // if (event.key.toUpperCase == value.innerHTML) {
+                //     console.log('hi');
+                //     value.style.color = 'red';
+                // }
+            }
+        });
+    </script>
+</body>
+
+</html>
